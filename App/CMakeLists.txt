@@ -5,10 +5,17 @@ project(app VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-## If you want to have a custom path, set the variable below
-#set(CMAKE_PREFIX_PATH "/path/to/someLibrary/install")
-find_package(someLibA 1.0.9 CONFIG REQUIRED)
-find_package(someLibB 3.0.0 CONFIG REQUIRED)
+## Set the path for the CMAKE_PREFIX_PATH variable below
+set(someLibA_NAME   someLibA)
+set(someLibA_VERSION   1.0.9)
+list(APPEND CMAKE_PREFIX_PATH "/path/to/someLibrary/.project_libraries/cmake/${someLibA_NAME}-${someLibA_VERSION}")
+find_package(${someLibA_NAME} ${someLibA_VERSION} CONFIG REQUIRED)
+
+set(someLibB_NAME   someLibB)
+set(someLibB_VERSION   3.0.0)
+list(APPEND CMAKE_PREFIX_PATH "/path/to/someLibrary/.project_libraries/cmake/${someLibB_NAME}-${someLibB_VERSION}")
+find_package(${someLibB_NAME} ${someLibB_VERSION} CONFIG REQUIRED)
+
 
 add_executable(${PROJECT_NAME})
 
