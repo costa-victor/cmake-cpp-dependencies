@@ -30,12 +30,6 @@ set(public_headers
     include/someLibA.hpp
 )
 
-add_custom_target(graphviz ALL
-    COMMAND ${CMAKE_COMMAND} "--graphviz=foo.dot" .
-    COMMAND dot -Tpng foo.dot -o foo.png
-    WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
-)
-
 # where to find our CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 #message(STATUS "CMake module path: ${CMAKE_MODULE_PATH}")
