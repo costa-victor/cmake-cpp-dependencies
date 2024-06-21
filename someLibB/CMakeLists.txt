@@ -4,6 +4,11 @@ cmake_minimum_required(VERSION 3.20.0)
 set(namespace "someLibB")
 project(someLibB VERSION 3.0.0 LANGUAGES CXX)
 
+# Set the project workspace, it's used as a reference for the installed files
+set(PROJECT_WORKSPACE
+    "${CMAKE_CURRENT_SOURCE_DIR}/.."
+    CACHE PATH "Project workspace"
+)
 
 add_library(${PROJECT_NAME} STATIC)
 
@@ -30,17 +35,13 @@ set(public_headers
     include/someLibB.hpp
 )
 
+## someLibA info
+set(someLibA_NAME   someLibA)
+set(someLibA_VERSION   1.0.9)
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibA_NAME}-${someLibA_VERSION}")
+find_package(${someLibA_NAME} ${someLibA_VERSION} CONFIG REQUIRED)
 
-
-### Fetching someLibA
-## If you want to have a custom path, set the variable below
-# set(CMAKE_PREFIX_PATH "/usr/lib/local")
-find_package(someLibA 1.0.9 CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE someLibA::someLibA)
-
-
-
-
 
 # where to find our CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")

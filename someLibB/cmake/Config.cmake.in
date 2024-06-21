@@ -2,5 +2,9 @@
 
 include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
 
+
+# Add dependency on LibA
+include("@someLibA_DIR@/someLibATargets.cmake")
+
 # Check whether or not all the required components were found
 check_required_components(@PROJECT_NAME@)

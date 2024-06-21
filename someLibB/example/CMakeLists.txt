@@ -2,12 +2,20 @@ cmake_minimum_required(VERSION 3.20)
 
 project(app VERSION 0.1.0)
 
+# Set the project workspace, it's used as a reference for the installed files
+set(PROJECT_WORKSPACE
+    "${CMAKE_CURRENT_SOURCE_DIR}/../.."
+    CACHE PATH "Project workspace"
+)
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-## If you want to have a custom path, set the variable below
-#set(CMAKE_PREFIX_PATH "usr/lib/local")
-find_package(someLibB 3.0.0 CONFIG REQUIRED)
+## someLibB info
+set(someLibB_NAME   someLibB)
+set(someLibB_VERSION   3.0.0)
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibB_NAME}-${someLibB_VERSION}")
+find_package(${someLibB_NAME} ${someLibB_VERSION} CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME})
 
