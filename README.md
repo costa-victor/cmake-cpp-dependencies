@@ -10,6 +10,7 @@ Furthermore, the following topics represents the dependency chain:
 - `App` depends on the `someLibA` and `someLibB`
 
 
+_**NOTE:** Tested on macOS/Ubuntu, this may not work on Windows_
 
 ## Project Structure
 
