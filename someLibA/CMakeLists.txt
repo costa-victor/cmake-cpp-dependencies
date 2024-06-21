@@ -4,6 +4,11 @@ cmake_minimum_required(VERSION 3.20.0)
 set(namespace "someLibA")
 project(someLibA VERSION 1.0.9 LANGUAGES CXX)
 
+# Set the project workspace, it's used as a reference for the installed files
+set(PROJECT_WORKSPACE
+    "${CMAKE_CURRENT_SOURCE_DIR}/.."
+    CACHE PATH "Project workspace"
+)
 
 add_library(${PROJECT_NAME} STATIC)
 
