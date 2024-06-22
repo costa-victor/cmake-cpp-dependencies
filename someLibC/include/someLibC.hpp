@@ -1,5 +1,6 @@
 #ifndef SOMELIB_C_HPP
 #define SOMELIB_C_HPP
+// External dependency
 #include "libShape/someLibShape.hpp"
 
 namespace libC {
