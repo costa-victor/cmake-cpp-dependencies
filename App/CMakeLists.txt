@@ -23,6 +23,11 @@ set(someLibB_VERSION   3.0.0)
 list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibB_NAME}-${someLibB_VERSION}")
 find_package(${someLibB_NAME} ${someLibB_VERSION} CONFIG REQUIRED)
 
+## someLibC info
+set(someLibC_NAME   someLibC)
+set(someLibC_VERSION   5.0.0)
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibC_NAME}-${someLibC_VERSION}")
+find_package(${someLibC_NAME} ${someLibC_VERSION} CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME})
 
@@ -33,3 +38,4 @@ target_sources(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} PRIVATE someLibA::someLibA)
 target_link_libraries(${PROJECT_NAME} PRIVATE someLibB::someLibB)
+target_link_libraries(${PROJECT_NAME} PRIVATE someLibC::someLibC)
