@@ -39,14 +39,14 @@ set(headerOnlyLib_VERSION   0.5.0)
 list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${headerOnlyLib_NAME}-${headerOnlyLib_VERSION}")
 find_package(${headerOnlyLib_NAME} ${headerOnlyLib_VERSION} CONFIG REQUIRED)
 
-## someLibA info
-set(someLibA_NAME   someLibA)
-set(someLibA_VERSION   1.0.9)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibA_NAME}-${someLibA_VERSION}")
-find_package(${someLibA_NAME} ${someLibA_VERSION} CONFIG REQUIRED)
+## someLibB info
+set(someLibB_NAME   someLibB)
+set(someLibB_VERSION   3.0.0)
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibB_NAME}-${someLibB_VERSION}")
+find_package(${someLibB_NAME} ${someLibB_VERSION} CONFIG REQUIRED)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE libShape::libShape)
-target_link_libraries(${PROJECT_NAME} PRIVATE someLibA::someLibA)
+target_link_libraries(${PROJECT_NAME} PRIVATE someLibB::someLibB)
 
 # where to find our CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")

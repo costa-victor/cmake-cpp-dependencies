@@ -2,12 +2,14 @@
 #include <iostream>
 
 // External dependency
-#include "someLibA/someLibA.hpp"
+#include "someLibB/someLibB.hpp"
+// #include "someLibA/someLibA.hpp"
 
 namespace libC {
     SomeLibC::SomeLibC() {
-        std::cout << "Hello from libC constructor using libA ::: " << std::endl;
-        libA::someLibA_fnc();
+        std::cout << "Hello from libC constructor using libB + libA" << std::endl;
+        libB::someLibB_fnc();
+        // libA::someLibA_fnc();
         version = 42;
     }
     void SomeLibC::abstractPublicHello() {

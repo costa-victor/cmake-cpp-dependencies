@@ -2,8 +2,8 @@
 
 include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
 
-# Add dependency on LibA
-include("@someLibA_DIR@/someLibATargets.cmake")
+# Add dependency on LibB
+include("@someLibB_DIR@/someLibBTargets.cmake")
 
 # Add dependency on libShape
 include("@libShape_DIR@/libShapeTargets.cmake")
