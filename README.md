@@ -56,7 +56,7 @@ _**NOTE:** Tested on macOS/Ubuntu, this may not work on Windows_
 
 ## Building the Project
 
-### Building someLib's A,B,C and headerOnlyLib
+### Building and installing someLib's A,B,C and headerOnlyLib individually
 
 1. Navigate to the library directory:
 
@@ -78,7 +78,15 @@ _**NOTE:** Tested on macOS/Ubuntu, this may not work on Windows_
    cmake --build . --target install
    ```
 
-### Building and Running the Application
+### Building and installing all the libraries
+
+1. Execute all the commands above with one command
+
+   ```bash
+   make
+   ```
+
+### Building and running the Application
 
 1. Navigate to the `App` directory:
 
