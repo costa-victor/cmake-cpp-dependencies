@@ -2,9 +2,9 @@
 
 include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
 
-
-# Add dependency on LibA
-include("@someLibA_DIR@/someLibATargets.cmake")
+# Find someLibA package
+list(APPEND CMAKE_PREFIX_PATH "@PROJECT_WORKSPACE@/.project_libraries/cmake/@someLibA_NAME@-@someLibA_VERSION@")
+find_package(@someLibA_NAME@ @someLibA_VERSION@ CONFIG REQUIRED)
 
 # Check whether or not all the required components were found
 check_required_components(@PROJECT_NAME@)

@@ -1,0 +1,14 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
+
+# Find someLibB package
+list(APPEND CMAKE_PREFIX_PATH "@PROJECT_WORKSPACE@/.project_libraries/cmake/@someLibB_NAME@-@someLibB_VERSION@")
+find_package(@someLibB_NAME@ @someLibB_VERSION@ CONFIG REQUIRED)
+
+# Find libShape package
+list(APPEND CMAKE_PREFIX_PATH "@PROJECT_WORKSPACE@/.project_libraries/cmake/@headerOnlyLib_NAME@-@headerOnlyLib_VERSION@")
+find_package(@headerOnlyLib_NAME@ @headerOnlyLib_VERSION@ CONFIG REQUIRED)
+
+# Check whether or not all the required components were found
+check_required_components(@PROJECT_NAME@)
