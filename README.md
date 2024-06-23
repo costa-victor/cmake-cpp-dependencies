@@ -1,8 +1,8 @@
 
-# Cpp CMake dependencies
+# CMake library dependencies
 
-This repository contains a C++11 project organized with CMake, consisting of two static libraries (`someLibA` and `someLibB`) and an application (`App`) that depends on these libraries.
-Furthermore, the following topics represents the dependency chain:
+This educational repository contains a collection of examples showing how to use CMake for creating, building, installing, managing dependencies, and using libraries with CMake and C++.
+Additionally, the dependency chain between the libraries is represented by the following topics:
 - `headerOnlyLib` is a header-only library
 - `headerOnlyLib/example` demonstrate how to use the `headerOnlyLib`
 - `someLibA` is a static library
@@ -102,7 +102,7 @@ _**NOTE:** Tested on macOS/Ubuntu, this may not work on Windows_
    ```
 
 
-## Extra examples
+## Extra
 
 ### Example for someLib's A,B,C and headerOnlyLib
 
