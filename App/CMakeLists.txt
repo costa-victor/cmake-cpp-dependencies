@@ -14,19 +14,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## someLibA info
 set(someLibA_NAME   someLibA)
 set(someLibA_VERSION   1.0.9)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibA_NAME}-${someLibA_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibA_NAME}-${someLibA_VERSION}/cmake")
 find_package(${someLibA_NAME} ${someLibA_VERSION} CONFIG REQUIRED)
 
 ## someLibB info
 set(someLibB_NAME   someLibB)
 set(someLibB_VERSION   3.0.0)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibB_NAME}-${someLibB_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibB_NAME}-${someLibB_VERSION}/cmake")
 find_package(${someLibB_NAME} ${someLibB_VERSION} CONFIG REQUIRED)
 
 ## someLibC info
 set(someLibC_NAME   someLibC)
 set(someLibC_VERSION   5.0.0)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibC_NAME}-${someLibC_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibC_NAME}-${someLibC_VERSION}/cmake")
 find_package(${someLibC_NAME} ${someLibC_VERSION} CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME})
