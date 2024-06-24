@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## someLibA info
 set(someLibA_NAME   someLibA)
 set(someLibA_VERSION   1.0.9)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibA_NAME}-${someLibA_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibA_NAME}-${someLibA_VERSION}/cmake")
 find_package(${someLibA_NAME} ${someLibA_VERSION} CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME})

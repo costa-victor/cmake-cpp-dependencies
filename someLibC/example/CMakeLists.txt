@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## someLibC info
 set(someLibC_NAME   someLibC)
 set(someLibC_VERSION   5.0.0)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibC_NAME}-${someLibC_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibC_NAME}-${someLibC_VERSION}/cmake")
 find_package(${someLibC_NAME} ${someLibC_VERSION} CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME})

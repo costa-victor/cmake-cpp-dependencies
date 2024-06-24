@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## headerOnlyLib info
 set(headerOnlyLib_NAME   libShape)
 set(headerOnlyLib_VERSION   0.5.0)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${headerOnlyLib_NAME}-${headerOnlyLib_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${headerOnlyLib_NAME}-${headerOnlyLib_VERSION}/cmake")
 find_package(${headerOnlyLib_NAME} ${headerOnlyLib_VERSION} CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME})

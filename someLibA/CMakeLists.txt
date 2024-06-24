@@ -27,7 +27,7 @@ target_include_directories(${PROJECT_NAME}
         # where top-level project will look for the library's public headers
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         # where external projects will look for the library's public headers
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+        $<INSTALL_INTERFACE:${PROJECT_NAME}-${PROJECT_VERSION}/include/${PROJECT_NAME}>
 )
 
 # without it public headers won't get installed
@@ -37,5 +37,4 @@ set(public_headers
 
 # where to find our CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-#message(STATUS "CMake module path: ${CMAKE_MODULE_PATH}")
 include(Installing)

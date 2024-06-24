@@ -18,7 +18,7 @@ target_include_directories(${PROJECT_NAME}
         # where top-level project will look for the library's public headers
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         # where external projects will look for the library's public headers
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+        $<INSTALL_INTERFACE:${PROJECT_NAME}-${PROJECT_VERSION}/${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 # without it public headers won't get installed

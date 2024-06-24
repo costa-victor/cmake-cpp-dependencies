@@ -17,7 +17,12 @@ if(DEFINED CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     )
 
     set(${PROJECT_NAME}_DIR
-    "${CMAKE_INSTALL_PREFIX}/cmake/${PROJECT_NAME}-${PROJECT_VERSION}"
+    "${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}-${PROJECT_VERSION}/cmake"
+    CACHE PATH "Where the library will be installed to" FORCE
+    )
+
+    set(${PROJECT_NAME}_INCLUDE_DIRS
+    "${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}-${PROJECT_VERSION}/include"
     CACHE PATH "Where the library will be installed to" FORCE
     )
 else()
@@ -38,20 +43,19 @@ install(TARGETS ${PROJECT_NAME}
     # these get default values from GNUInstallDirs, no need to set them
     #RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} # bin
     # LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} # lib - meant for shared libraries
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME}-${PROJECT_VERSION} # lib
+    ARCHIVE DESTINATION ${PROJECT_NAME}-${PROJECT_VERSION}/${CMAKE_INSTALL_LIBDIR} # lib
     # except for public headers, as we want them to be inside a library folder
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME} # include/SomeProject
-    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} # include
+    PUBLIC_HEADER DESTINATION ${PROJECT_NAME}-${PROJECT_VERSION}/${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME} # include/SomeProject
+    INCLUDES DESTINATION ${PROJECT_NAME}-${PROJECT_VERSION}/${CMAKE_INSTALL_INCLUDEDIR} # include
 )
 
 # generate and install export file
 install(EXPORT "${PROJECT_NAME}Targets"
     FILE "${PROJECT_NAME}Targets.cmake"
     NAMESPACE ${namespace}::
-    DESTINATION cmake/${PROJECT_NAME}-${PROJECT_VERSION}
+    DESTINATION ${PROJECT_NAME}-${PROJECT_VERSION}/cmake
 )
 
-include(CMakePackageConfigHelpers)
 include(CMakePackageConfigHelpers)
 
 # generate the version file for the config file
@@ -63,11 +67,11 @@ write_basic_package_version_file(
 # create config file
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/Config.cmake.in
     "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
-    INSTALL_DESTINATION cmake/${PROJECT_NAME}-${PROJECT_VERSION}
+    INSTALL_DESTINATION ${PROJECT_NAME}-${PROJECT_VERSION}/cmake
 )
 # install config files
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
     "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-    DESTINATION cmake/${PROJECT_NAME}-${PROJECT_VERSION}
+    DESTINATION ${PROJECT_NAME}-${PROJECT_VERSION}/cmake
 )

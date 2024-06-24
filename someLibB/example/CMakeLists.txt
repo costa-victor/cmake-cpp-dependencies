@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## someLibB info
 set(someLibB_NAME   someLibB)
 set(someLibB_VERSION   3.0.0)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibB_NAME}-${someLibB_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibB_NAME}-${someLibB_VERSION}/cmake")
 find_package(${someLibB_NAME} ${someLibB_VERSION} CONFIG REQUIRED)
 
 add_executable(${PROJECT_NAME})

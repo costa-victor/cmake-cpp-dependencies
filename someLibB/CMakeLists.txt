@@ -13,7 +13,7 @@ project(someLibB VERSION 3.0.0 LANGUAGES CXX)
 ## someLibA info
 set(someLibA_NAME   someLibA)
 set(someLibA_VERSION   1.0.9)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibA_NAME}-${someLibA_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibA_NAME}-${someLibA_VERSION}/cmake")
 find_package(${someLibA_NAME} ${someLibA_VERSION} CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
@@ -35,7 +35,7 @@ target_include_directories(${PROJECT_NAME}
         # where top-level project will look for the library's public headers
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         # where external projects will look for the library's public headers
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+        $<INSTALL_INTERFACE:${PROJECT_NAME}-${PROJECT_VERSION}/include/${PROJECT_NAME}>
 )
 
 # without it public headers won't get installed

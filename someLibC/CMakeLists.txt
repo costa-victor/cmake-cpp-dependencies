@@ -13,13 +13,13 @@ project(someLibC VERSION 5.0.0 LANGUAGES CXX)
 ## headerOnlyLib info
 set(headerOnlyLib_NAME   libShape)
 set(headerOnlyLib_VERSION   0.5.0)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${headerOnlyLib_NAME}-${headerOnlyLib_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${headerOnlyLib_NAME}-${headerOnlyLib_VERSION}/cmake")
 find_package(${headerOnlyLib_NAME} ${headerOnlyLib_VERSION} CONFIG REQUIRED)
 
 ## someLibB info
 set(someLibB_NAME   someLibB)
 set(someLibB_VERSION   3.0.0)
-list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/cmake/${someLibB_NAME}-${someLibB_VERSION}")
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_WORKSPACE}/.project_libraries/${someLibB_NAME}-${someLibB_VERSION}/cmake")
 find_package(${someLibB_NAME} ${someLibB_VERSION} CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
@@ -40,7 +40,7 @@ target_include_directories(${PROJECT_NAME}
         # where top-level project will look for the library's public headers
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         # where external projects will look for the library's public headers
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+        $<INSTALL_INTERFACE:${PROJECT_NAME}-${PROJECT_VERSION}/${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 # without it public headers won't get installed
